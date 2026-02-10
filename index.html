@@ -6,768 +6,791 @@
     <title>My Heart's Question 💘 | CodexAG</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+    /* ===== MOBILE-FIRST RESPONSIVE STYLES ===== */
+    
+    /* Base mobile styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    }
 
-        :root {
-            --primary-pink: #ff4d8d;
-            --secondary-pink: #ff85a2;
-            --dark-pink: #e91e63;
-            --light-pink: #ffc2d1;
-            --gold: #ffd700;
-            --rose-gold: #b76e79;
-            --whatsapp-green: #25D366;
-            --white: #fff;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
+    :root {
+        --primary-pink: #ff4d8d;
+        --secondary-pink: #ff85a2;
+        --dark-pink: #e91e63;
+        --light-pink: #ffc2d1;
+        --gold: #ffd700;
+        --rose-gold: #b76e79;
+        --whatsapp-green: #25D366;
+        --white: #fff;
+        --card-bg: rgba(255, 255, 255, 0.98);
+        --text-dark: #333;
+        --text-medium: #555;
+        --safe-area-inset-top: env(safe-area-inset-top, 0px);
+        --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #ffc2d1 0%, #ffafcc 25%, #ff8fab 50%, #fb6f92 75%, #f72585 100%);
-            background-size: 400% 400%;
-            animation: romanticGradient 20s ease infinite;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow-x: hidden;
-            position: relative;
-            color: #333;
-            padding: 20px;
-        }
+    html {
+        font-size: 16px;
+        -webkit-text-size-adjust: 100%;
+    }
 
-        @keyframes romanticGradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    body {
+        font-family: 'Poppins', sans-serif;
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+        background: linear-gradient(135deg, #ffc2d1 0%, #ffafcc 25%, #ff8fab 50%, #fb6f92 75%, #f72585 100%);
+        background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
 
-        /* Romantic background elements */
-        .romantic-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
+    /* Container for mobile */
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        gap: 20px;
+        position: relative;
+        z-index: 10;
+    }
 
-        .floating-heart {
-            position: absolute;
-            font-size: 24px;
-            color: rgba(255, 255, 255, 0.6);
-            animation: floatHeart 8s linear infinite;
-            z-index: 1;
-        }
+    /* Mobile header */
+    .header {
+        width: 100%;
+        text-align: center;
+        color: white;
+        padding: 20px 15px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        margin-top: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
 
-        .floating-rose {
-            position: absolute;
-            font-size: 28px;
-            color: rgba(255, 77, 141, 0.5);
-            animation: floatRose 10s linear infinite;
-            z-index: 1;
-        }
+    .header h1 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+        line-height: 1.2;
+        background: linear-gradient(to right, var(--white), var(--light-pink));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        .floating-star {
-            position: absolute;
-            font-size: 20px;
-            color: rgba(255, 215, 0, 0.7);
-            animation: twinkle 4s ease-in-out infinite;
-            z-index: 1;
-        }
+    .header p {
+        font-size: 1rem;
+        font-weight: 300;
+        opacity: 0.9;
+        line-height: 1.5;
+        margin: 0 auto;
+        max-width: 90%;
+    }
 
-        @keyframes floatHeart {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-        }
+    /* Mobile proposal card */
+    .proposal-card {
+        width: 100%;
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 25px 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        text-align: center;
+        position: relative;
+        margin-bottom: 20px;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
 
-        @keyframes floatRose {
-            0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.7; }
-            100% { transform: translateY(-100px) translateX(100px) rotate(180deg); opacity: 0; }
-        }
+    .card-content {
+        width: 100%;
+        position: relative;
+    }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
+    /* Mobile question section */
+    .question {
+        margin-bottom: 25px;
+    }
 
-        /* Main container */
+    .question h2 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.8rem;
+        color: var(--dark-pink);
+        margin-bottom: 15px;
+        line-height: 1.3;
+        padding: 0 10px;
+    }
+
+    .question p {
+        font-size: 1rem;
+        color: var(--text-medium);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        padding: 0 5px;
+    }
+
+    .love-letter {
+        background: linear-gradient(135deg, rgba(255, 245, 250, 0.95), rgba(255, 230, 240, 0.95));
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px 0;
+        border-left: 4px solid var(--primary-pink);
+        text-align: left;
+        font-style: italic;
+        line-height: 1.6;
+        color: var(--text-medium);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        font-size: 0.95rem;
+    }
+
+    .signature {
+        text-align: right;
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.4rem;
+        color: var(--dark-pink);
+        margin-top: 15px;
+    }
+
+    /* Mobile buttons */
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        margin-top: 25px;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        padding: 18px 30px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+        -webkit-appearance: none;
+        touch-action: manipulation;
+        min-height: 56px;
+    }
+
+    .btn::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .btn:active::after {
+        opacity: 1;
+    }
+
+    .btn-yes {
+        background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
+        color: var(--white);
+    }
+
+    .btn-no {
+        background: linear-gradient(135deg, #666, #888);
+        color: var(--white);
+    }
+
+    /* Mobile progress bar */
+    .progress-container {
+        width: 100%;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+        margin-top: 15px;
+        overflow: hidden;
+        display: none;
+    }
+
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--primary-pink), var(--secondary-pink), var(--gold));
+        border-radius: 4px;
+        transition: width 0.3s ease;
+    }
+
+    /* Mobile share buttons */
+    .share-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        margin-top: 20px;
+        align-items: center;
+    }
+
+    .share-btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 16px 25px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        -webkit-appearance: none;
+        touch-action: manipulation;
+        min-height: 52px;
+    }
+
+    .share-whatsapp {
+        background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+        color: var(--white);
+    }
+
+    .share-other {
+        background: linear-gradient(135deg, #6c757d, #495057);
+        color: var(--white);
+    }
+
+    /* Mobile popups */
+    .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        padding: 20px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .popup.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .popup-content {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 25px 20px;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+    }
+
+    .popup.active .popup-content {
+        transform: scale(1);
+    }
+
+    .popup h2 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.2rem;
+        color: var(--dark-pink);
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+
+    .popup p {
+        color: var(--text-medium);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .popup-btn {
+        background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
+        color: var(--white);
+        border: none;
+        padding: 16px 30px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(255, 77, 141, 0.3);
+        margin-top: 15px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 280px;
+        -webkit-appearance: none;
+        touch-action: manipulation;
+        min-height: 52px;
+    }
+
+    /* Mobile utility elements */
+    .counter {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(255, 77, 141, 0.9);
+        color: var(--white);
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        display: none;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        z-index: 3;
+    }
+
+    .date-display {
+        position: fixed;
+        top: max(15px, var(--safe-area-inset-top));
+        left: 15px;
+        right: 15px;
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--white);
+        padding: 8px 15px;
+        border-radius: 15px;
+        font-size: 0.75rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        z-index: 100;
+        text-align: center;
+        margin: 0 auto;
+        max-width: calc(100% - 30px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .instructions {
+        position: fixed;
+        bottom: max(15px, var(--safe-area-inset-bottom));
+        left: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.2);
+        color: var(--white);
+        padding: 10px 15px;
+        border-radius: 15px;
+        font-size: 0.75rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        z-index: 100;
+        text-align: center;
+        margin: 0 auto;
+        max-width: calc(100% - 30px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        line-height: 1.4;
+    }
+
+    .music-toggle {
+        position: fixed;
+        bottom: max(80px, calc(var(--safe-area-inset-bottom) + 80px));
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary-pink);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--white);
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+        transition: all 0.3s ease;
+        -webkit-appearance: none;
+        touch-action: manipulation;
+    }
+
+    .developer-credit {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.8rem;
+        margin-top: 10px;
+        width: 100%;
+        padding: 12px 15px;
+        background: rgba(0, 0, 0, 0.15);
+        border-radius: 15px;
+        backdrop-filter: blur(5px);
+        line-height: 1.5;
+    }
+
+    .developer-credit a {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .developer-credit a:active {
+        color: var(--white);
+        opacity: 0.8;
+    }
+
+    /* Mobile animations */
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    .heartbeat {
+        animation: heartbeat 1.5s ease infinite;
+        display: inline-block;
+    }
+
+    /* Mobile share popup */
+    .share-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        padding: 20px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .share-popup.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .share-popup-content {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 25px 20px;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .share-popup.active .share-popup-content {
+        transform: scale(1);
+    }
+
+    .share-popup h3 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.8rem;
+        color: var(--dark-pink);
+        margin-bottom: 15px;
+    }
+
+    .share-options {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .copy-link {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .copy-link input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        -webkit-appearance: none;
+    }
+
+    .copy-link button {
+        background: var(--primary-pink);
+        color: var(--white);
+        border: none;
+        padding: 14px 20px;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        -webkit-appearance: none;
+        touch-action: manipulation;
+    }
+
+    /* Mobile background elements (reduced for performance) */
+    .romantic-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .floating-heart {
+        position: absolute;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.4);
+        animation: floatHeart 8s linear infinite;
+        z-index: 1;
+    }
+
+    @keyframes floatHeart {
+        0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+        10% { opacity: 0.6; }
+        90% { opacity: 0.6; }
+        100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+
+    /* Mobile-specific optimizations */
+    @media (max-width: 480px) {
         .container {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
+            padding: 0 12px;
+            gap: 15px;
         }
-
-        /* Header section */
+        
         .header {
-            text-align: center;
-            color: white;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            position: relative;
+            padding: 18px 12px;
+            margin-top: 5px;
         }
-
+        
         .header h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, var(--white), var(--light-pink), var(--gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            font-size: 1.9rem;
         }
-
-        .header p {
-            font-size: 1.3rem;
-            font-weight: 300;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* Main proposal card */
+        
         .proposal-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 40px;
-            width: 100%;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            padding: 22px 18px;
+            border-radius: 18px;
         }
-
-        .proposal-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-        }
-
-        .proposal-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, var(--primary-pink), var(--secondary-pink), var(--gold), var(--rose-gold));
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .question {
-            margin-bottom: 40px;
-        }
-
+        
         .question h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            color: var(--dark-pink);
-            margin-bottom: 20px;
-            line-height: 1.3;
+            font-size: 1.6rem;
         }
-
-        .question p {
-            font-size: 1.2rem;
-            color: #666;
-            line-height: 1.8;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
+        
         .love-letter {
-            background: linear-gradient(135deg, rgba(255, 245, 250, 0.9), rgba(255, 230, 240, 0.9));
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
-            border-left: 5px solid var(--primary-pink);
-            text-align: left;
-            font-style: italic;
-            line-height: 1.7;
-            color: #555;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 18px;
+            font-size: 0.9rem;
         }
-
-        .signature {
-            text-align: right;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: var(--dark-pink);
-            margin-top: 15px;
-        }
-
-        /* Buttons styling */
-        .buttons-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 40px;
-        }
-
+        
         .btn {
-            padding: 20px 45px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.3rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            min-width: 200px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            padding: 16px 25px;
+            font-size: 1rem;
+            min-height: 52px;
         }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
-            z-index: -1;
-        }
-
-        .btn:hover::before {
-            transform: translateX(0);
-        }
-
-        .btn-yes {
-            background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
-            color: white;
-        }
-
-        .btn-yes:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.4);
-        }
-
-        .btn-no {
-            background: linear-gradient(135deg, #666, #888);
-            color: white;
-            position: relative;
-        }
-
-        .btn-no:hover {
-            background: linear-gradient(135deg, #777, #999);
-            transform: translateY(-5px);
-        }
-
-        /* Progress indicator for yes button */
-        .progress-container {
-            width: 100%;
-            height: 10px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 5px;
-            margin-top: 20px;
-            overflow: hidden;
-            display: none;
-        }
-
-        .progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--primary-pink), var(--secondary-pink), var(--gold));
-            border-radius: 5px;
-            transition: width 0.3s ease;
-        }
-
-        /* Popup styling */
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s ease;
-            backdrop-filter: blur(10px);
-            padding: 20px;
-        }
-
-        .popup.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .popup-content {
-            background: white;
-            border-radius: 25px;
-            padding: 50px 40px;
-            max-width: 700px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
-            transform: scale(0.8);
-            transition: transform 0.5s ease;
-            position: relative;
-            overflow: hidden;
-            border: 3px solid var(--light-pink);
-        }
-
-        .popup.active .popup-content {
-            transform: scale(1);
-        }
-
-        .popup-content::before {
-            content: '💖';
-            position: absolute;
-            top: -30px;
-            right: -30px;
-            font-size: 120px;
-            opacity: 0.1;
-            transform: rotate(20deg);
-        }
-
-        .popup h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            color: var(--dark-pink);
-            margin-bottom: 25px;
-        }
-
-        .popup p {
-            color: #555;
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
-
-        .popup-btn {
-            background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(255, 77, 141, 0.3);
-            margin-top: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .popup-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(255, 77, 141, 0.5);
-        }
-
-        /* Share buttons */
-        .share-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
+        
         .share-btn {
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: none;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 14px 22px;
+            font-size: 0.95rem;
+            min-height: 48px;
         }
-
-        .share-whatsapp {
-            background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
-            color: white;
-        }
-
-        .share-whatsapp:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.3);
-        }
-
-        .share-other {
-            background: linear-gradient(135deg, #6c757d, #495057);
-            color: white;
-        }
-
-        .share-other:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(108, 117, 125, 0.3);
-        }
-
-        /* Confetti effect */
-        .confetti {
-            position: fixed;
-            width: 15px;
-            height: 15px;
-            background-color: var(--primary-pink);
-            top: -10px;
-            z-index: 999;
-            border-radius: 50%;
-        }
-
-        /* Music toggle */
-        .music-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--primary-pink);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-
-        .music-toggle:hover {
-            transform: scale(1.1);
-            background: var(--dark-pink);
-        }
-
-        /* Counter for "no" button clicks */
-        .counter {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 77, 141, 0.9);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Developer credit */
-        .developer-credit {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            margin-top: 20px;
-            width: 100%;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
-        }
-
-        .developer-credit a {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .developer-credit a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-
-        /* Heartbeat animation */
-        .heartbeat {
-            animation: heartbeat 1.5s ease infinite;
-            display: inline-block;
-        }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            5% { transform: scale(1.2); }
-            10% { transform: scale(1.1); }
-            15% { transform: scale(1.3); }
-            50% { transform: scale(1); }
-            100% { transform: scale(1); }
-        }
-
-        /* Date display */
-        .date-display {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        /* Instructions tooltip */
-        .instructions {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.2);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            max-width: 250px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        .instructions:hover {
-            opacity: 1;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .container {
-                gap: 20px;
-            }
-            
-            .header h1 {
-                font-size: 2.8rem;
-            }
-            
-            .header p {
-                font-size: 1.1rem;
-            }
-            
-            .proposal-card {
-                padding: 30px 20px;
-            }
-            
-            .question h2 {
-                font-size: 2.5rem;
-            }
-            
-            .question p {
-                font-size: 1.1rem;
-            }
-            
-            .love-letter {
-                padding: 20px;
-                font-size: 0.95rem;
-            }
-            
-            .buttons-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                padding: 18px 30px;
-                font-size: 1.2rem;
-            }
-            
-            .popup-content {
-                padding: 40px 25px;
-            }
-            
-            .popup h2 {
-                font-size: 2.8rem;
-            }
-            
-            .popup p {
-                font-size: 1.1rem;
-            }
-            
-            .date-display, .instructions {
-                position: relative;
-                top: auto;
-                left: auto;
-                bottom: auto;
-                margin: 10px auto;
-                text-align: center;
-                width: 90%;
-            }
-            
-            .share-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .share-btn {
-                width: 100%;
-                max-width: 250px;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 15px;
-            }
-            
-            .header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .question h2 {
-                font-size: 2rem;
-            }
-            
-            .btn {
-                min-width: 250px;
-                padding: 16px 25px;
-                font-size: 1.1rem;
-            }
-            
-            .music-toggle {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
-            }
-            
-            .popup h2 {
-                font-size: 2.2rem;
-            }
-        }
-
-        /* Animation for love pulse */
-        @keyframes lovePulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .love-pulse {
-            animation: lovePulse 2s infinite;
-        }
-
-        /* Share popup */
-        .share-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s ease;
-            backdrop-filter: blur(10px);
-            padding: 20px;
-        }
-
-        .share-popup.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
+        
+        .popup-content,
         .share-popup-content {
-            background: white;
-            border-radius: 25px;
-            padding: 40px 30px;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
-            transform: scale(0.8);
-            transition: transform 0.5s ease;
+            padding: 22px 18px;
         }
-
-        .share-popup.active .share-popup-content {
-            transform: scale(1);
+        
+        .popup h2 {
+            font-size: 1.9rem;
         }
-
-        .share-popup h3 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            color: var(--dark-pink);
-            margin-bottom: 20px;
+        
+        .date-display,
+        .instructions {
+            font-size: 0.7rem;
+            padding: 7px 12px;
         }
-
-        .share-options {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 25px;
+        
+        .music-toggle {
+            width: 48px;
+            height: 48px;
+            font-size: 1.1rem;
+            bottom: max(70px, calc(var(--safe-area-inset-bottom) + 70px));
         }
+    }
 
-        .copy-link {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
+    @media (max-width: 360px) {
+        .header h1 {
+            font-size: 1.7rem;
         }
-
-        .copy-link input {
-            flex: 1;
+        
+        .question h2 {
+            font-size: 1.4rem;
+        }
+        
+        .love-letter {
             padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 1rem;
+            font-size: 0.85rem;
         }
+        
+        .btn {
+            padding: 14px 22px;
+            font-size: 0.95rem;
+        }
+        
+        .share-btn {
+            padding: 12px 20px;
+            font-size: 0.9rem;
+        }
+        
+        .popup h2 {
+            font-size: 1.7rem;
+        }
+        
+        .date-display,
+        .instructions {
+            font-size: 0.65rem;
+        }
+    }
 
-        .copy-link button {
-            background: var(--primary-pink);
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+    /* Landscape mode adjustments */
+    @media (max-height: 600px) and (orientation: landscape) {
+        .container {
+            min-height: auto;
+            padding: 10px;
         }
+        
+        .header {
+            padding: 12px;
+            margin-top: 0;
+        }
+        
+        .header h1 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+        
+        .proposal-card {
+            padding: 18px 15px;
+            margin-bottom: 10px;
+        }
+        
+        .love-letter {
+            padding: 12px;
+            font-size: 0.85rem;
+            margin: 12px 0;
+        }
+        
+        .buttons-container {
+            margin-top: 15px;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            min-height: 46px;
+        }
+        
+        .date-display,
+        .instructions {
+            position: relative;
+            top: auto;
+            bottom: auto;
+            left: auto;
+            right: auto;
+            margin: 5px auto;
+            width: 90%;
+        }
+        
+        .music-toggle {
+            bottom: 20px;
+            right: 20px;
+        }
+    }
 
-        .copy-link button:hover {
-            background: var(--dark-pink);
+    /* Safe area support for iPhone X and newer */
+    @supports (padding: max(0px)) {
+        .container {
+            padding-left: max(15px, env(safe-area-inset-left));
+            padding-right: max(15px, env(safe-area-inset-right));
         }
-    </style>
+    }
+
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+        
+        .heartbeat {
+            animation: none;
+        }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+        .proposal-card {
+            background: rgba(30, 30, 30, 0.95);
+            color: #f0f0f0;
+        }
+        
+        .question p {
+            color: #ccc;
+        }
+        
+        .love-letter {
+            background: rgba(40, 40, 40, 0.9);
+            color: #ddd;
+        }
+    }
+</style>
 </head>
 <body>
     <!-- Romantic background elements -->
@@ -897,7 +920,7 @@
                 <div class="copy-link">
                     <input type="text" id="shareLink" value="https://codexag.com/romantic-proposal" readonly>
                     <button onclick="copyShareLink()">
-                        <i class="fas fa-copy"></i> Copy
+                        <i class="fas fa-copy"></i> Copy Link
                     </button>
                 </div>
             </div>
@@ -925,36 +948,40 @@
             const heartIcons = ['💖', '💗', '💓', '💘', '💝', '💕'];
             const flowerIcons = ['🌹', '🌷', '🌸', '💐', '🥀'];
             
-            for (let i = 0; i < 25; i++) {
+            // Calculate number of floating elements based on screen size
+            const screenArea = window.innerWidth * window.innerHeight;
+            const elementCount = Math.min(Math.floor(screenArea / 20000), 30);
+            
+            for (let i = 0; i < elementCount; i++) {
                 // Create floating hearts
                 const heart = document.createElement('div');
                 heart.className = 'floating-heart';
                 heart.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.fontSize = (Math.random() * 25 + 20) + 'px';
+                heart.style.fontSize = (Math.random() * 25 + 15) + 'px';
                 heart.style.animationDuration = (Math.random() * 10 + 8) + 's';
                 heart.style.animationDelay = Math.random() * 5 + 's';
                 romanticBg.appendChild(heart);
                 
-                // Create floating roses
-                if (i % 3 === 0) {
+                // Create floating roses (less frequent)
+                if (i % 4 === 0) {
                     const rose = document.createElement('div');
                     rose.className = 'floating-rose';
                     rose.innerHTML = flowerIcons[Math.floor(Math.random() * flowerIcons.length)];
                     rose.style.left = Math.random() * 100 + 'vw';
-                    rose.style.fontSize = (Math.random() * 20 + 25) + 'px';
+                    rose.style.fontSize = (Math.random() * 20 + 20) + 'px';
                     rose.style.animationDuration = (Math.random() * 12 + 10) + 's';
                     rose.style.animationDelay = Math.random() * 6 + 's';
                     romanticBg.appendChild(rose);
                 }
                 
-                // Create floating stars
-                if (i % 4 === 0) {
+                // Create floating stars (even less frequent)
+                if (i % 5 === 0) {
                     const star = document.createElement('div');
                     star.className = 'floating-star';
                     star.innerHTML = '✨';
                     star.style.left = Math.random() * 100 + 'vw';
-                    star.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                    star.style.fontSize = (Math.random() * 15 + 10) + 'px';
                     star.style.animationDuration = (Math.random() * 3 + 2) + 's';
                     star.style.animationDelay = Math.random() * 3 + 's';
                     romanticBg.appendChild(star);
@@ -986,7 +1013,7 @@
             
             // Initialize romantic music with user interaction
             document.addEventListener('click', function initMusic() {
-                if (!musicPlaying) {
+                if (!musicPlaying && romanticMusic) {
                     romanticMusic.volume = 0.3;
                     romanticMusic.play().then(() => {
                         musicPlaying = true;
@@ -1000,6 +1027,8 @@
             
             // Music toggle
             musicToggle.addEventListener('click', function() {
+                if (!romanticMusic) return;
+                
                 if (musicPlaying) {
                     romanticMusic.pause();
                     musicToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
@@ -1015,7 +1044,7 @@
             yesBtn.addEventListener('click', function() {
                 showRomanticPopup();
                 createRomanticConfetti(150);
-                romanticMusic.volume = 0.5;
+                if (romanticMusic) romanticMusic.volume = 0.5;
             });
             
             // Yes button progress on hold (romantic gesture)
@@ -1038,7 +1067,7 @@
                             clearInterval(progressInterval);
                             showRomanticPopup();
                             createRomanticConfetti(200);
-                            romanticMusic.volume = 0.5;
+                            if (romanticMusic) romanticMusic.volume = 0.5;
                         }
                     } else {
                         clearInterval(progressInterval);
@@ -1055,6 +1084,42 @@
             });
             
             yesBtn.addEventListener('mouseleave', function() {
+                isYesHolding = false;
+                if (yesProgress < 100) {
+                    progressContainer.style.display = 'none';
+                    yesProgress = 0;
+                }
+            });
+            
+            // Touch events for mobile
+            yesBtn.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                isYesHolding = true;
+                progressContainer.style.display = 'block';
+                progressBar.style.width = '0%';
+                
+                const progressInterval = setInterval(() => {
+                    if (isYesHolding && yesProgress < 100) {
+                        yesProgress += 2;
+                        progressBar.style.width = yesProgress + '%';
+                        
+                        if (yesProgress % 20 === 0) {
+                            createFloatingHeartFromButton(yesBtn);
+                        }
+                        
+                        if (yesProgress >= 100) {
+                            clearInterval(progressInterval);
+                            showRomanticPopup();
+                            createRomanticConfetti(200);
+                            if (romanticMusic) romanticMusic.volume = 0.5;
+                        }
+                    } else {
+                        clearInterval(progressInterval);
+                    }
+                }, 30);
+            });
+            
+            yesBtn.addEventListener('touchend', function() {
                 isYesHolding = false;
                 if (yesProgress < 100) {
                     progressContainer.style.display = 'none';
@@ -1106,6 +1171,51 @@
                 createFloatingHeartFromButton(noBtn);
             });
             
+            // Touch event for no button on mobile
+            noBtn.addEventListener('touchstart', function() {
+                noClicks++;
+                counter.textContent = `Tries: ${noClicks}`;
+                counter.style.display = 'block';
+                
+                // On mobile, don't move the button as much
+                if (window.innerWidth > 768) {
+                    const maxX = window.innerWidth - noBtn.offsetWidth - 40;
+                    const maxY = window.innerHeight - noBtn.offsetHeight - 40;
+                    
+                    const randomX = Math.random() * maxX + 20;
+                    const randomY = Math.random() * maxY + 20;
+                    
+                    noBtn.style.position = 'fixed';
+                    noBtn.style.left = randomX + 'px';
+                    noBtn.style.top = randomY + 'px';
+                }
+                
+                // Change button text and color after certain clicks
+                const messages = [
+                    {text: "Are you sure? 💔", bg: "linear-gradient(135deg, #ff9800, #ffb74d)", clicks: 3},
+                    {text: "My heart is breaking! 😢", bg: "linear-gradient(135deg, #f44336, #ef5350)", clicks: 5},
+                    {text: "Please reconsider? 🥺", bg: "linear-gradient(135deg, #9c27b0, #ab47bc)", clicks: 7},
+                    {text: "You're breaking my heart 💔", bg: "linear-gradient(135deg, #3f51b5, #5c6bc0)", clicks: 9},
+                    {text: "Okay, you win my heart! 💖", bg: "linear-gradient(135deg, #4caf50, #66bb6a)", clicks: 12}
+                ];
+                
+                messages.forEach(msg => {
+                    if (noClicks === msg.clicks) {
+                        noBtn.innerHTML = `<i class="fas fa-heart"></i> ${msg.text}`;
+                        noBtn.style.background = msg.bg;
+                        
+                        if (noClicks === 12) {
+                            noBtn.style.position = 'relative';
+                            noBtn.style.left = '0';
+                            noBtn.style.top = '0';
+                            setTimeout(() => showRomanticPopup(), 500);
+                        }
+                    }
+                });
+                
+                createRomanticConfetti(10);
+            });
+            
             noBtn.addEventListener('click', function() {
                 createRomanticConfetti(20);
             });
@@ -1119,7 +1229,10 @@
                 // Update popup message based on clicks
                 if (noClicks >= 5) {
                     document.querySelector('.popup h2').textContent = "You Finally Said Yes! 💕";
-                    document.querySelector('.popup p').innerHTML = "I knew you'd come around! My heart was waiting for you all along.<br>Thank you for making me the happiest person today!";
+                    const popupParagraphs = document.querySelectorAll('.popup p');
+                    if (popupParagraphs.length > 0) {
+                        popupParagraphs[0].innerHTML = "I knew you'd come around! My heart was waiting for you all along.<br>Thank you for making me the happiest person today!";
+                    }
                 }
             }
             
@@ -1152,14 +1265,18 @@
                 btn.addEventListener('click', shareToWhatsApp);
             });
             
-            directWhatsAppBtn.addEventListener('click', shareToWhatsApp);
+            if (directWhatsAppBtn) {
+                directWhatsAppBtn.addEventListener('click', shareToWhatsApp);
+            }
             
             // Other share buttons open share popup
             shareOtherBtns.forEach(btn => {
                 btn.addEventListener('click', openSharePopup);
             });
             
-            closeSharePopupBtn.addEventListener('click', closeSharePopup);
+            if (closeSharePopupBtn) {
+                closeSharePopupBtn.addEventListener('click', closeSharePopup);
+            }
             
             // Social media sharing functions
             function shareOnFacebook() {
@@ -1175,21 +1292,36 @@
             
             function copyShareLink() {
                 const linkInput = document.getElementById('shareLink');
+                if (!linkInput) return;
+                
                 linkInput.select();
                 linkInput.setSelectionRange(0, 99999);
-                document.execCommand('copy');
                 
-                // Show feedback
-                const originalText = linkInput.value;
-                linkInput.value = "Link copied to clipboard! 📋";
-                setTimeout(() => {
-                    linkInput.value = originalText;
-                }, 2000);
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        // Show feedback
+                        const originalText = linkInput.value;
+                        linkInput.value = "Link copied to clipboard! 📋";
+                        setTimeout(() => {
+                            linkInput.value = originalText;
+                        }, 2000);
+                    }
+                } catch (err) {
+                    // Fallback for browsers that don't support execCommand
+                    navigator.clipboard.writeText(linkInput.value).then(() => {
+                        const originalText = linkInput.value;
+                        linkInput.value = "Link copied to clipboard! 📋";
+                        setTimeout(() => {
+                            linkInput.value = originalText;
+                        }, 2000);
+                    });
+                }
             }
             
             // Developer info
             function showDeveloperInfo() {
-                alert("💝 CodexAG 💝\n\nCreated with love for Valentine's Day 2024\n\nThis romantic proposal app is designed to help you express your feelings in a beautiful, interactive way.\n\nSpread love and happiness! ❤️");
+                alert("💝 CodexAG 💝\n\nCreated with love for Valentine's Day\n\nThis romantic proposal app is designed to help you express your feelings in a beautiful, interactive way.\n\nSpread love and happiness! ❤️");
             }
             
             // Create floating heart from button position
@@ -1198,7 +1330,7 @@
                 const heart = document.createElement('div');
                 heart.className = 'floating-heart';
                 heart.innerHTML = '💖';
-                heart.style.left = rect.left + rect.width/2 + 'px';
+                heart.style.left = (rect.left + rect.width/2) + 'px';
                 heart.style.top = rect.top + 'px';
                 heart.style.fontSize = '20px';
                 heart.style.animationDuration = '3s';
@@ -1206,7 +1338,9 @@
                 romanticBg.appendChild(heart);
                 
                 setTimeout(() => {
-                    heart.remove();
+                    if (heart.parentNode) {
+                        heart.remove();
+                    }
                 }, 3000);
             }
             
@@ -1215,7 +1349,10 @@
                 const colors = ['#ff4d8d', '#ff85a2', '#e91e63', '#ffc2d1', '#ffd700', '#b76e79', '#ffafcc'];
                 const shapes = ['❤️', '💖', '💗', '💓', '💘', '💝', '💕', '🌸', '🌹'];
                 
-                for (let i = 0; i < count; i++) {
+                // Adjust count based on screen size
+                const adjustedCount = Math.min(count, Math.floor((window.innerWidth * window.innerHeight) / 5000));
+                
+                for (let i = 0; i < adjustedCount; i++) {
                     const confetti = document.createElement('div');
                     confetti.className = 'confetti';
                     confetti.style.left = Math.random() * 100 + 'vw';
@@ -1225,13 +1362,13 @@
                     if (Math.random() > 0.7) {
                         confetti.innerHTML = shapes[Math.floor(Math.random() * shapes.length)];
                         confetti.style.backgroundColor = 'transparent';
-                        confetti.style.fontSize = Math.random() * 20 + 15 + 'px';
+                        confetti.style.fontSize = (Math.random() * 20 + 10) + 'px';
                         confetti.style.width = 'auto';
                         confetti.style.height = 'auto';
                     } else {
                         confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-                        confetti.style.width = Math.random() * 15 + 5 + 'px';
-                        confetti.style.height = Math.random() * 15 + 5 + 'px';
+                        confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                        confetti.style.height = (Math.random() * 10 + 5) + 'px';
                     }
                     
                     document.body.appendChild(confetti);
@@ -1241,20 +1378,22 @@
                         { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
                         { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 720}deg)`, opacity: 0 }
                     ], {
-                        duration: Math.random() * 3000 + 2000,
+                        duration: Math.random() * 2000 + 1500,
                         easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
                     });
                     
                     // Remove confetti after animation
                     animation.onfinish = () => {
-                        confetti.remove();
+                        if (confetti.parentNode) {
+                            confetti.remove();
+                        }
                     };
                 }
             }
             
             // Add some initial romantic confetti
             setTimeout(() => {
-                createRomanticConfetti(20);
+                createRomanticConfetti(15);
             }, 1000);
             
             // Add romantic click effects on the card
@@ -1270,13 +1409,15 @@
                 heart.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
                 heart.style.left = x + 'px';
                 heart.style.top = y + 'px';
-                heart.style.fontSize = '25px';
+                heart.style.fontSize = '20px';
                 heart.style.animationDuration = '4s';
                 heart.style.zIndex = '5';
                 romanticBg.appendChild(heart);
                 
                 setTimeout(() => {
-                    heart.remove();
+                    if (heart.parentNode) {
+                        heart.remove();
+                    }
                 }, 4000);
             }
             
@@ -1287,6 +1428,33 @@
                     instructions.style.opacity = '0.5';
                 }
             }, 10000);
+            
+            // Handle window resize
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    // Reposition no button if it's fixed
+                    if (noBtn.style.position === 'fixed') {
+                        const maxX = window.innerWidth - noBtn.offsetWidth - 40;
+                        const maxY = window.innerHeight - noBtn.offsetHeight - 40;
+                        
+                        const currentX = parseInt(noBtn.style.left) || 0;
+                        const currentY = parseInt(noBtn.style.top) || 0;
+                        
+                        // Ensure button stays within bounds
+                        noBtn.style.left = Math.min(Math.max(currentX, 20), maxX) + 'px';
+                        noBtn.style.top = Math.min(Math.max(currentY, 20), maxY) + 'px';
+                    }
+                }, 250);
+            });
+            
+            // Handle orientation change on mobile
+            window.addEventListener('orientationchange', function() {
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                }, 100);
+            });
         });
     </script>
 </body>

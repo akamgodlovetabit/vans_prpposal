@@ -6,7 +6,6 @@
     <title>My Heart's Question 💘 | CodexAG</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -21,9 +20,9 @@
             --light-pink: #ffc2d1;
             --gold: #ffd700;
             --rose-gold: #b76e79;
+            --whatsapp-green: #25D366;
             --white: #fff;
             --shadow: rgba(0, 0, 0, 0.1);
-            --whatsapp-green: #25D366;
         }
 
         body {
@@ -128,26 +127,6 @@
             position: relative;
         }
 
-        .developer-tag {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.3);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            backdrop-filter: blur(5px);
-        }
-
-        .developer-tag i {
-            color: var(--gold);
-        }
-
         .header h1 {
             font-family: 'Dancing Script', cursive;
             font-size: 3.5rem;
@@ -233,19 +212,6 @@
             line-height: 1.7;
             color: #555;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-
-        .love-letter::before {
-            content: '💌';
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            font-size: 30px;
-            background: white;
-            border-radius: 50%;
-            padding: 5px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .signature {
@@ -341,65 +307,6 @@
             transition: width 0.3s ease;
         }
 
-        /* Share Section */
-        .share-section {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px dashed rgba(255, 77, 141, 0.3);
-            width: 100%;
-        }
-
-        .share-section h3 {
-            color: var(--dark-pink);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .share-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .share-btn {
-            padding: 14px 25px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            border: none;
-            color: white;
-            min-width: 180px;
-        }
-
-        .whatsapp-btn {
-            background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
-        }
-
-        .whatsapp-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-        }
-
-        .copy-btn {
-            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-        }
-
-        .copy-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(108, 92, 231, 0.3);
-        }
-
         /* Popup styling */
         .popup {
             position: fixed;
@@ -467,14 +374,6 @@
             margin-bottom: 30px;
         }
 
-        .popup-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
         .popup-btn {
             background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
             color: white;
@@ -486,9 +385,9 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 10px 25px rgba(255, 77, 141, 0.3);
-            display: flex;
+            margin-top: 20px;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
         }
 
@@ -497,8 +396,47 @@
             box-shadow: 0 15px 35px rgba(255, 77, 141, 0.5);
         }
 
-        .popup-btn-share {
+        /* Share buttons */
+        .share-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .share-whatsapp {
             background: linear-gradient(135deg, var(--whatsapp-green), #128C7E);
+            color: white;
+        }
+
+        .share-whatsapp:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .share-other {
+            background: linear-gradient(135deg, #6c757d, #495057);
+            color: white;
+        }
+
+        .share-other:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(108, 117, 125, 0.3);
         }
 
         /* Confetti effect */
@@ -551,74 +489,79 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* Notification toast */
-        .toast {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            background: var(--whatsapp-green);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        /* Footer */
-        .footer {
+        /* Developer credit */
+        .developer-credit {
             text-align: center;
-            color: white;
-            margin-top: 30px;
-            padding: 20px;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
-            opacity: 0.8;
+            margin-top: 20px;
             width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
         }
 
-        .footer a {
+        .developer-credit a {
             color: var(--gold);
             text-decoration: none;
             font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        .footer a:hover {
+        .developer-credit a:hover {
+            color: white;
             text-decoration: underline;
         }
 
-        /* Animation for love pulse */
-        @keyframes lovePulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        /* Heartbeat animation */
+        .heartbeat {
+            animation: heartbeat 1.5s ease infinite;
+            display: inline-block;
         }
 
-        .love-pulse {
-            animation: lovePulse 2s infinite;
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.2); }
+            10% { transform: scale(1.1); }
+            15% { transform: scale(1.3); }
+            50% { transform: scale(1); }
+            100% { transform: scale(1); }
         }
 
         /* Date display */
         .date-display {
             position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(0, 0, 0, 0.3);
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
             color: white;
-            padding: 6px 12px;
+            padding: 8px 15px;
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.9rem;
             backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Instructions tooltip */
+        .instructions {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            max-width: 250px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .instructions:hover {
+            opacity: 1;
         }
 
         /* Responsive design */
@@ -665,16 +608,6 @@
                 font-size: 1.2rem;
             }
             
-            .share-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .share-btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
             .popup-content {
                 padding: 40px 25px;
             }
@@ -687,29 +620,25 @@
                 font-size: 1.1rem;
             }
             
-            .popup-buttons {
+            .date-display, .instructions {
+                position: relative;
+                top: auto;
+                left: auto;
+                bottom: auto;
+                margin: 10px auto;
+                text-align: center;
+                width: 90%;
+            }
+            
+            .share-container {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .popup-btn {
+            .share-btn {
                 width: 100%;
-                max-width: 300px;
-            }
-            
-            .developer-tag, .date-display {
-                position: relative;
-                top: 0;
-                right: 0;
-                left: 0;
-                margin-bottom: 15px;
-                display: inline-block;
-            }
-            
-            .toast {
-                bottom: 80px;
-                right: 20px;
-                left: 20px;
+                max-width: 250px;
+                justify-content: center;
             }
         }
 
@@ -740,9 +669,103 @@
                 font-size: 1.3rem;
             }
             
-            .footer {
-                font-size: 0.8rem;
+            .popup h2 {
+                font-size: 2.2rem;
             }
+        }
+
+        /* Animation for love pulse */
+        @keyframes lovePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .love-pulse {
+            animation: lovePulse 2s infinite;
+        }
+
+        /* Share popup */
+        .share-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+        }
+
+        .share-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .share-popup-content {
+            background: white;
+            border-radius: 25px;
+            padding: 40px 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+            transform: scale(0.8);
+            transition: transform 0.5s ease;
+        }
+
+        .share-popup.active .share-popup-content {
+            transform: scale(1);
+        }
+
+        .share-popup h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--dark-pink);
+            margin-bottom: 20px;
+        }
+
+        .share-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .copy-link {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .copy-link input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .copy-link button {
+            background: var(--primary-pink);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .copy-link button:hover {
+            background: var(--dark-pink);
         }
     </style>
 </head>
@@ -750,16 +773,22 @@
     <!-- Romantic background elements -->
     <div class="romantic-bg" id="romanticBg"></div>
 
+    <!-- Date display -->
+    <div class="date-display">
+        <i class="fas fa-calendar-heart"></i> 
+        <span id="currentDate"></span> • Valentine's Week 💘
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+        <i class="fas fa-lightbulb"></i> 
+        <strong>Tip:</strong> Hold the "Yes" button for a romantic surprise!
+    </div>
+
     <!-- Main container -->
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <div class="date-display">
-                <i class="fas fa-calendar-heart"></i> February 14, Valentine's Day
-            </div>
-            
-            
-            
             <h1>My Heart's Question for You 💘</h1>
             <p>Every moment with you feels like a beautiful dream I never want to wake up from</p>
         </div>
@@ -770,7 +799,7 @@
             
             <div class="card-content">
                 <div class="question">
-                    <h2>Will you be my Valentine? 💝</h2>
+                    <h2>Will you be my Valentine? <span class="heartbeat">💝</span></h2>
                     <p>From the moment we met, you've filled my life with joy, laughter, and love beyond measure.</p>
                     
                     <div class="love-letter">
@@ -797,25 +826,23 @@
                     <div class="progress-bar" id="progressBar"></div>
                 </div>
 
-                <!-- Share Section -->
-                <div class="share-section" id="shareSection">
-                    <h3><i class="fas fa-share-alt"></i> Share This Special Moment</h3>
-                    <div class="share-buttons">
-                        <button class="share-btn whatsapp-btn" id="whatsappShare">
-                            <i class="fab fa-whatsapp"></i> Share on WhatsApp
-                        </button>
-                        <button class="share-btn copy-btn" id="copyLink">
-                            <i class="fas fa-link"></i> Copy Link
-                        </button>
-                    </div>
+                <!-- Share buttons in main card -->
+                <div class="share-container" id="mainShareContainer">
+                    <button class="share-btn share-whatsapp" id="shareWhatsApp">
+                        <i class="fab fa-whatsapp"></i> Share on WhatsApp
+                    </button>
+                    <button class="share-btn share-other" id="shareOther">
+                        <i class="fas fa-share-alt"></i> Share with Friends
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>Made with <i class="fas fa-heart" style="color: #ff4d8d;"></i> by <a href="#" id="devLink">CodexAG</a> | A special Valentine's Day creation</p>
-            <p>Share this proposal with your loved ones to spread the love!</p>
+        <!-- Developer credit -->
+        <div class="developer-credit">
+            Created with <i class="fas fa-heart" style="color: #ff4d8d;"></i> by 
+            <a href="javascript:void(0)" onclick="showDeveloperInfo()">CodexAG</a> • 
+            Spread love, not just today but every day 💕
         </div>
     </div>
 
@@ -824,29 +851,60 @@
         <i class="fas fa-music"></i>
     </div>
 
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-        <i class="fas fa-check-circle"></i>
-        <span id="toastMessage">Link copied to clipboard!</span>
-    </div>
-
-    <!-- Popup -->
+    <!-- Main Popup -->
     <div class="popup" id="popup">
         <div class="popup-content">
-            <h2>You Said Yes! 💖</h2>
+            <h2>You Said Yes! <span class="heartbeat">💖</span></h2>
             <p>My heart is overflowing with joy! You've just made this the happiest day of my life.</p>
             <p>I promise to cherish you, respect you, and love you more with each passing day. Together, we'll create countless beautiful memories and build a future filled with laughter and love.</p>
             <p>Thank you for choosing me, for believing in us, and for saying yes to this beautiful journey ahead.</p>
             <p>Happy Valentine's Day, my love! This is just the beginning of our forever. 🌹</p>
             
-            <div class="popup-buttons">
-                <button class="popup-btn" id="closePopup">
-                    <i class="fas fa-heart"></i> Let's Celebrate!
-                </button>
-                <button class="popup-btn popup-btn-share" id="popupWhatsappShare">
+            <div class="share-container">
+                <button class="share-btn share-whatsapp" id="popupShareWhatsApp">
                     <i class="fab fa-whatsapp"></i> Share on WhatsApp
                 </button>
+                <button class="share-btn share-other" id="popupShareOther">
+                    <i class="fas fa-share-alt"></i> Share this Moment
+                </button>
             </div>
+            
+            <button class="popup-btn" id="closePopup">
+                <i class="fas fa-heart"></i> Let's Celebrate Our Love!
+            </button>
+        </div>
+    </div>
+
+    <!-- Share Popup -->
+    <div class="share-popup" id="sharePopup">
+        <div class="share-popup-content">
+            <h3>Share the Love! 💌</h3>
+            <p>Spread this romantic proposal with your friends and loved ones!</p>
+            
+            <div class="share-options">
+                <button class="share-btn share-whatsapp" id="directWhatsApp">
+                    <i class="fab fa-whatsapp"></i> Share on WhatsApp
+                </button>
+                
+                <button class="share-btn share-other" onclick="shareOnFacebook()">
+                    <i class="fab fa-facebook"></i> Share on Facebook
+                </button>
+                
+                <button class="share-btn share-other" onclick="shareOnTwitter()">
+                    <i class="fab fa-twitter"></i> Share on Twitter
+                </button>
+                
+                <div class="copy-link">
+                    <input type="text" id="shareLink" value="https://codexag.com/romantic-proposal" readonly>
+                    <button onclick="copyShareLink()">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+            </div>
+            
+            <button class="popup-btn" id="closeSharePopup" style="margin-top: 25px;">
+                <i class="fas fa-times"></i> Close
+            </button>
         </div>
     </div>
 
@@ -857,6 +915,11 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Set current date
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', options);
+
             // Create romantic background elements
             const romanticBg = document.getElementById('romanticBg');
             const heartIcons = ['💖', '💗', '💓', '💘', '💝', '💕'];
@@ -902,28 +965,24 @@
             const yesBtn = document.getElementById('yesBtn');
             const noBtn = document.getElementById('noBtn');
             const popup = document.getElementById('popup');
+            const sharePopup = document.getElementById('sharePopup');
             const closePopupBtn = document.getElementById('closePopup');
             const progressContainer = document.getElementById('progressContainer');
             const progressBar = document.getElementById('progressBar');
             const counter = document.getElementById('counter');
             const musicToggle = document.getElementById('musicToggle');
             const romanticMusic = document.getElementById('romanticMusic');
-            const whatsappShare = document.getElementById('whatsappShare');
-            const popupWhatsappShare = document.getElementById('popupWhatsappShare');
-            const copyLink = document.getElementById('copyLink');
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toastMessage');
-            const devLink = document.getElementById('devLink');
-            const shareSection = document.getElementById('shareSection');
+            
+            // Share buttons
+            const shareWhatsAppBtns = document.querySelectorAll('.share-whatsapp');
+            const shareOtherBtns = document.querySelectorAll('.share-other');
+            const directWhatsAppBtn = document.getElementById('directWhatsApp');
+            const closeSharePopupBtn = document.getElementById('closeSharePopup');
             
             let noClicks = 0;
             let yesProgress = 0;
             let isYesHolding = false;
             let musicPlaying = false;
-            
-            // Current page URL for sharing
-            const currentUrl = window.location.href;
-            const shareMessage = `💖 I just received the most romantic Valentine's Day proposal! Check it out and spread the love: ${currentUrl} 💝 #ValentinesDay #RomanticProposal #CodexAG`;
             
             // Initialize romantic music with user interaction
             document.addEventListener('click', function initMusic() {
@@ -952,53 +1011,11 @@
                 }
             });
             
-            // WhatsApp Share function
-            function shareToWhatsApp() {
-                const encodedMessage = encodeURIComponent(shareMessage);
-                const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
-                window.open(whatsappUrl, '_blank');
-            }
-            
-            // Setup WhatsApp share buttons
-            whatsappShare.addEventListener('click', shareToWhatsApp);
-            popupWhatsappShare.addEventListener('click', function() {
-                shareToWhatsApp();
-                popup.classList.remove('active');
-            });
-            
-            // Copy link to clipboard
-            copyLink.addEventListener('click', function() {
-                navigator.clipboard.writeText(currentUrl).then(() => {
-                    showToast('Link copied to clipboard!');
-                }).catch(err => {
-                    console.error('Failed to copy: ', err);
-                    showToast('Failed to copy link. Please try again.');
-                });
-            });
-            
-            // Show toast notification
-            function showToast(message) {
-                toastMessage.textContent = message;
-                toast.classList.add('show');
-                
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 3000);
-            }
-            
-            // Developer link
-            devLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                showToast('Created with ❤️ by CodexAG');
-            });
-            
             // Yes button interaction
             yesBtn.addEventListener('click', function() {
                 showRomanticPopup();
                 createRomanticConfetti(150);
                 romanticMusic.volume = 0.5;
-                // Show share section after saying yes
-                shareSection.style.display = 'block';
             });
             
             // Yes button progress on hold (romantic gesture)
@@ -1022,8 +1039,6 @@
                             showRomanticPopup();
                             createRomanticConfetti(200);
                             romanticMusic.volume = 0.5;
-                            // Show share section after saying yes
-                            shareSection.style.display = 'block';
                         }
                     } else {
                         clearInterval(progressInterval);
@@ -1082,11 +1097,7 @@
                             noBtn.style.position = 'relative';
                             noBtn.style.left = '0';
                             noBtn.style.top = '0';
-                            setTimeout(() => {
-                                showRomanticPopup();
-                                // Show share section after saying yes
-                                shareSection.style.display = 'block';
-                            }, 500);
+                            setTimeout(() => showRomanticPopup(), 500);
                         }
                     }
                 });
@@ -1117,6 +1128,69 @@
                 document.body.style.overflow = 'auto';
                 createRomanticConfetti(50);
             });
+            
+            // Share functionality
+            function openSharePopup() {
+                sharePopup.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeSharePopup() {
+                sharePopup.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            
+            // WhatsApp sharing
+            function shareToWhatsApp() {
+                const message = `💖 I just experienced the most romantic Valentine's proposal! 💖\n\nCheck out this beautiful romantic proposal created by CodexAG:\n\n${window.location.href || "https://codexag.com/romantic-proposal"}\n\nSpread the love this Valentine's season! ❤️`;
+                const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            }
+            
+            // Attach WhatsApp share to all WhatsApp buttons
+            shareWhatsAppBtns.forEach(btn => {
+                btn.addEventListener('click', shareToWhatsApp);
+            });
+            
+            directWhatsAppBtn.addEventListener('click', shareToWhatsApp);
+            
+            // Other share buttons open share popup
+            shareOtherBtns.forEach(btn => {
+                btn.addEventListener('click', openSharePopup);
+            });
+            
+            closeSharePopupBtn.addEventListener('click', closeSharePopup);
+            
+            // Social media sharing functions
+            function shareOnFacebook() {
+                const url = encodeURIComponent(window.location.href || "https://codexag.com/romantic-proposal");
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+            }
+            
+            function shareOnTwitter() {
+                const text = encodeURIComponent("💖 Check out this beautiful romantic Valentine's proposal by @CodexAG! Perfect for your special someone ❤️");
+                const url = encodeURIComponent(window.location.href || "https://codexag.com/romantic-proposal");
+                window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+            }
+            
+            function copyShareLink() {
+                const linkInput = document.getElementById('shareLink');
+                linkInput.select();
+                linkInput.setSelectionRange(0, 99999);
+                document.execCommand('copy');
+                
+                // Show feedback
+                const originalText = linkInput.value;
+                linkInput.value = "Link copied to clipboard! 📋";
+                setTimeout(() => {
+                    linkInput.value = originalText;
+                }, 2000);
+            }
+            
+            // Developer info
+            function showDeveloperInfo() {
+                alert("💝 CodexAG 💝\n\nCreated with love for Valentine's Day 2024\n\nThis romantic proposal app is designed to help you express your feelings in a beautiful, interactive way.\n\nSpread love and happiness! ❤️");
+            }
             
             // Create floating heart from button position
             function createFloatingHeartFromButton(button) {
@@ -1206,10 +1280,13 @@
                 }, 4000);
             }
             
-            // Show welcome message
+            // Auto-hide instructions after 10 seconds
             setTimeout(() => {
-                showToast('💖 Welcome to this romantic Valentine\'s proposal!');
-            }, 1500);
+                const instructions = document.querySelector('.instructions');
+                if (instructions) {
+                    instructions.style.opacity = '0.5';
+                }
+            }, 10000);
         });
     </script>
 </body>
